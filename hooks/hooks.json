@@ -1,0 +1,15 @@
+{
+  "description": "Load tracked-patterns index at session start so cross-session counts are always visible",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cat ~/.claude/patterns/PATTERNS.md 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}

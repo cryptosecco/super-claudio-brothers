@@ -1,0 +1,20 @@
+{
+  "name": "super-claudio-brothers",
+  "description": "Marketplace for super-claudio-brothers — pattern detection & skill crystallization for Claude Code",
+  "owner": {
+    "name": "Danilo Giudice",
+    "email": "runkz0@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "super-claudio-brothers",
+      "description": "Detects multi-step workflows you repeat and crystallizes them into reusable skills",
+      "version": "0.1.0",
+      "source": "./",
+      "author": {
+        "name": "Danilo Giudice",
+        "email": "runkz0@gmail.com"
+      }
+    }
+  ]
+}

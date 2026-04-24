@@ -1,0 +1,20 @@
+{
+  "name": "super-claudio-brothers",
+  "description": "Tu la lanci, e lei pensa al resto. Detects multi-step workflows you repeat across sessions and crystallizes them into reusable skills at the 4th occurrence.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Danilo Giudice",
+    "email": "runkz0@gmail.com"
+  },
+  "homepage": "https://github.com/cryptosecco/super-claudio-brothers",
+  "repository": "https://github.com/cryptosecco/super-claudio-brothers",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "skills",
+    "automation",
+    "pattern-detection",
+    "workflow",
+    "productivity"
+  ]
+}
