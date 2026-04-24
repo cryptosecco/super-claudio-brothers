@@ -1,21 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="760" height="140" viewBox="0 0 760 140" role="img" aria-label="Super Claudio Brothers">
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="120" viewBox="0 0 820 120" role="img" aria-label="Super Claudio Brothers">
   <title>Super Claudio Brothers</title>
 
-  <!-- Mushroom top-right -->
-  <g transform="translate(686, 20)">
-    <ellipse cx="24" cy="24" rx="23" ry="13" fill="#b71c1c"/>
-    <path d="M 4 26 C 4 8, 44 8, 44 26 L 44 30 L 4 30 Z" fill="#e53935"/>
-    <circle cx="14" cy="20" r="3.5" fill="#ffffff"/>
-    <circle cx="24" cy="14" r="4"   fill="#ffffff"/>
-    <circle cx="34" cy="20" r="3.5" fill="#ffffff"/>
-    <path d="M 12 30 L 36 30 L 33 50 L 15 50 Z" fill="#ffffff" stroke="#e53935" stroke-width="1.5"/>
-    <circle cx="19" cy="40" r="2" fill="#e53935"/>
-    <circle cx="29" cy="40" r="2" fill="#e53935"/>
+  <!-- Red mushroom with white dots, sitting next to 'super' -->
+  <g transform="translate(24, 22)">
+    <!-- Cap shadow -->
+    <ellipse cx="36" cy="36" rx="34" ry="20" fill="#b71c1c"/>
+    <!-- Cap main -->
+    <path d="M 4 36 C 4 8, 68 8, 68 36 L 68 42 L 4 42 Z" fill="#e53935"/>
+    <!-- White dots on cap -->
+    <circle cx="18" cy="26" r="5" fill="#ffffff"/>
+    <circle cx="36" cy="16" r="6" fill="#ffffff"/>
+    <circle cx="54" cy="26" r="5" fill="#ffffff"/>
+    <circle cx="12" cy="36" r="3" fill="#ffffff"/>
+    <circle cx="60" cy="36" r="3" fill="#ffffff"/>
+    <!-- Stem (white, trapezoid) -->
+    <path d="M 18 42 L 54 42 L 50 74 L 22 74 Z" fill="#ffffff" stroke="#e53935" stroke-width="2"/>
   </g>
 
-  <!-- Title in Claude Code style (sparkle + mono, warm orange) -->
-  <text x="40" y="86" font-family="'SF Mono', Menlo, Monaco, 'Courier New', monospace" font-size="32" font-weight="500" fill="#d97757">
-    <tspan font-size="38" font-weight="400">✻</tspan>
-    <tspan dx="14">super claudio brothers</tspan>
-  </text>
+  <!-- Title in Claude Code style (warm orange mono) -->
+  <text x="120" y="80" font-family="'SF Mono', Menlo, Monaco, 'Courier New', monospace" font-size="44" font-weight="500" fill="#d97757">super claudio brothers</text>
 </svg>
