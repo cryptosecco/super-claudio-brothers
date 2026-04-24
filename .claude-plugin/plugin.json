@@ -1,6 +1,6 @@
 {
   "name": "super-claudio-brothers",
-  "description": "Two agents for Claude Code: one watches your recurring multi-step workflows in silence, the other proposes a ready-to-install skill at the 4th occurrence. Tu la lanci, e lei pensa al resto.",
+  "description": "Two agents for Claude Code: Claudio watches your recurring multi-step workflows in silence, Dario proposes a ready-to-install skill at the 4th occurrence. You launch it. It handles the rest.",
   "version": "0.1.0",
   "author": {
     "name": "Danilo Giudice",

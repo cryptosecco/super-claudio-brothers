@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "super-claudio-brothers",
-      "description": "Two agents: one watches patterns in silence, the other proposes the skill at the 4th hit",
+      "description": "Two agents: Claudio watches patterns in silence, Dario proposes the skill at the 4th hit",
       "version": "0.1.0",
       "source": "./",
       "author": {

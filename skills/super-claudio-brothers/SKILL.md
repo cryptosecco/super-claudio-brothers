@@ -29,8 +29,8 @@ Present this welcome to the user (adapt to the user's apparent language — they
 🍄 Super Claudio Brothers — first run
 
 Two brothers will now watch your workflow:
-  • The Watcher  — observes patterns silently, writes to ~/.claude/patterns/
-  • The Proposer — at the 4th repetition, offers a ready-made skill
+  • Claudio — the Watcher. Observes patterns silently, writes to ~/.claude/patterns/
+  • Dario   — the Proposer. At the 4th repetition, offers a ready-made skill
 
 I watch for multi-step workflows you repeat 3+ times (within a
 session or across sessions) and propose crystallizing them as
@@ -211,7 +211,7 @@ Create now (invokes /superpowers:writing-skills) or decline?
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-**The single 🍄 marks every skill-crystallization moment.** This is The Proposer (Brother #2) speaking. One mushroom per proposal — no parade, no fanfare.
+**The single 🍄 marks every skill-crystallization moment.** This is Dario (the Proposer) speaking. One mushroom per proposal — no parade, no fanfare.
 
 ## Installation
 

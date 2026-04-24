@@ -1,12 +1,31 @@
-<p align="center">
-  <img src="banner.svg" alt="Super Claudio Brothers" width="640" />
-</p>
+```
+    _____     ███████╗██╗   ██╗██████╗ ███████╗██████╗
+   /*****\    ██╔════╝██║   ██║██╔══██╗██╔════╝██╔══██╗
+  | * * * |   ███████╗██║   ██║██████╔╝█████╗  ██████╔╝
+   \_____/    ╚════██║██║   ██║██╔═══╝ ██╔══╝  ██╔══██╗
+    |   |     ███████║╚██████╔╝██║     ███████╗██║  ██║
+    |___|     ╚══════╝ ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═╝
+
+              ██████╗██╗      █████╗ ██╗   ██╗██████╗ ██╗ ██████╗
+             ██╔════╝██║     ██╔══██╗██║   ██║██╔══██╗██║██╔═══██╗
+             ██║     ██║     ███████║██║   ██║██║  ██║██║██║   ██║
+             ██║     ██║     ██╔══██║██║   ██║██║  ██║██║██║   ██║
+             ╚██████╗███████╗██║  ██║╚██████╔╝██████╔╝██║╚██████╔╝
+              ╚═════╝╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚═╝ ╚═════╝
+
+             ██████╗ ██████╗  ██████╗ ████████╗██╗  ██╗███████╗██████╗ ███████╗
+             ██╔══██╗██╔══██╗██╔═══██╗╚══██╔══╝██║  ██║██╔════╝██╔══██╗██╔════╝
+             ██████╔╝██████╔╝██║   ██║   ██║   ███████║█████╗  ██████╔╝███████╗
+             ██╔══██╗██╔══██╗██║   ██║   ██║   ██╔══██║██╔══╝  ██╔══██╗╚════██║
+             ██████╔╝██║  ██║╚██████╔╝   ██║   ██║  ██║███████╗██║  ██║███████║
+             ╚═════╝ ╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝
+```
 
 # Super Claudio Brothers
 
-> *Tu la lanci, e lei pensa al resto.*
+> *You launch it. It handles the rest.*
 
-A Claude Code plugin with two agents working in tandem. One watches. One proposes. You keep shipping.
+A Claude Code plugin that turns your repeated workflows into reusable skills — automatically. Two agents work in tandem behind the scenes: **Claudio** observes every multi-step pattern across your sessions and logs it silently; **Dario** wakes up at the 4th repetition and proposes a ready-to-install skill crystallized from what Claudio saw. You keep shipping — the skills library grows on its own.
 
 ---
 
@@ -14,7 +33,7 @@ A Claude Code plugin with two agents working in tandem. One watches. One propose
 
 Every morning you open a new Claude Code session and re-explain the same workflow. Again. Super Claudio Brothers ends that loop with a pair of agents, each with exactly one job.
 
-### Brother #1 — The Watcher
+### Claudio — The Watcher
 
 Runs silently across every session. Annotates recurring multi-step workflows into `~/.claude/patterns/`. Never speaks. Never interrupts. Just counts.
 
@@ -22,9 +41,9 @@ Runs silently across every session. Annotates recurring multi-step workflows int
 - 2nd time: noted internally.
 - 3rd time: a quiet tracking file appears.
 
-### Brother #2 — The Proposer
+### Dario — The Proposer
 
-Wakes up on the 4th occurrence. At end of turn, presents a soft-blocking block with a complete skill proposal — name, description, steps, trigger, type. The mushroom 🍄 marks every proposal.
+Wakes up on the 4th occurrence. At end of turn, presents a soft-blocking block with a complete skill proposal — name, description, steps, trigger, type. The mushroom 🍄 marks every proposal Dario makes.
 
 - You approve → a new skill lands at `~/.claude/skills/itsme-<slug>/`.
 - You decline → the pattern is shelved forever. No re-prompting.
@@ -33,7 +52,7 @@ Wakes up on the 4th occurrence. At end of turn, presents a soft-blocking block w
 
 ## What changes for you
 
-- **You stop explaining yourself to a new session every morning.** The Watcher remembers so you don't have to.
+- **You stop explaining yourself to a new session every morning.** Claudio remembers so you don't have to.
 - **Every repetition compounds.** The 4th time you do something, it's already a skill you own.
 - **Two agents watch your workflow while you keep shipping.** No context-switching, no manual bookkeeping.
 - **Everything stays on your machine.** No telemetry. No cloud. No daemons.
@@ -55,12 +74,12 @@ That's it. The enhanced hook ships with the plugin — no `settings.json` edit, 
 
 ### The 4-hit threshold
 
-| Occurrence | What the Watcher does                          | What you see         |
-|------------|------------------------------------------------|----------------------|
-| 1st        | Ignored                                        | Nothing              |
-| 2nd        | Noted internally                               | Nothing              |
-| 3rd        | Writes a silent tracking file                  | Nothing              |
-| 4th        | The Proposer speaks — soft-blocking 🍄 proposal | A skill, ready       |
+| Occurrence | What Claudio does                              | What you see             |
+|------------|------------------------------------------------|--------------------------|
+| 1st        | Ignored                                        | Nothing                  |
+| 2nd        | Noted internally                               | Nothing                  |
+| 3rd        | Writes a silent tracking file                  | Nothing                  |
+| 4th        | Dario speaks — soft-blocking 🍄 proposal       | A skill, ready           |
 
 ### Patterns match on shape, not surface
 
@@ -90,13 +109,13 @@ Everything lives under `~/.claude/`, owned by you:
 
 ## Controls
 
-Silence the Watcher:
+Silence Claudio:
 
 ```bash
 touch ~/.claude/patterns/.disabled
 ```
 
-Bring it back:
+Bring him back:
 
 ```bash
 rm ~/.claude/patterns/.disabled
@@ -124,10 +143,10 @@ After that, the plugin is invisible until the 4th hit.
 Open `/hooks` to confirm the hook is registered, or restart Claude Code. The hook ships with the plugin but some environments cache older settings.
 
 **`~/.claude/patterns/` is empty.**
-Expected. Nothing is written until the 3rd occurrence of a pattern. Keep working — the Watcher is counting.
+Expected. Nothing is written until the 3rd occurrence of a pattern. Keep working — Claudio is counting.
 
 **I declined a pattern and regret it.**
-Open `~/.claude/patterns/<slug>.md` and flip `status: declined` back to `status: tracking`. The Proposer will reconsider on the next hit.
+Open `~/.claude/patterns/<slug>.md` and flip `status: declined` back to `status: tracking`. Dario will reconsider on the next hit.
 
 **The skill fires at the wrong time.**
 It lives in `~/.claude/skills/itsme-<slug>/` — edit the trigger or description directly. It's yours now.
@@ -154,4 +173,4 @@ MIT — see [LICENSE](LICENSE).
 
 Built by [Danilo Giudice](https://github.com/cryptosecco) for people who keep typing the same five steps every morning and wish someone were paying attention.
 
-The mushroom 🍄 is the mark. If you see it at the end of a turn, a brother has something for you.
+The mushroom 🍄 is the mark. If you see it at the end of a turn, Dario has something for you.
