@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="140" viewBox="0 0 760 140" role="img" aria-label="Super Claudio Brothers">
+  <title>Super Claudio Brothers</title>
+
+  <!-- Mushroom top-right -->
+  <g transform="translate(686, 20)">
+    <ellipse cx="24" cy="24" rx="23" ry="13" fill="#b71c1c"/>
+    <path d="M 4 26 C 4 8, 44 8, 44 26 L 44 30 L 4 30 Z" fill="#e53935"/>
+    <circle cx="14" cy="20" r="3.5" fill="#ffffff"/>
+    <circle cx="24" cy="14" r="4"   fill="#ffffff"/>
+    <circle cx="34" cy="20" r="3.5" fill="#ffffff"/>
+    <path d="M 12 30 L 36 30 L 33 50 L 15 50 Z" fill="#ffffff" stroke="#e53935" stroke-width="1.5"/>
+    <circle cx="19" cy="40" r="2" fill="#e53935"/>
+    <circle cx="29" cy="40" r="2" fill="#e53935"/>
+  </g>
+
+  <!-- Title in Claude Code style (sparkle + mono, warm orange) -->
+  <text x="40" y="86" font-family="'SF Mono', Menlo, Monaco, 'Courier New', monospace" font-size="32" font-weight="500" fill="#d97757">
+    <tspan font-size="38" font-weight="400">✻</tspan>
+    <tspan dx="14">super claudio brothers</tspan>
+  </text>
+</svg>

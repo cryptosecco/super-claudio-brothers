@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "super-claudio-brothers",
-      "description": "Detects multi-step workflows you repeat and crystallizes them into reusable skills",
+      "description": "Two agents: one watches patterns in silence, the other proposes the skill at the 4th hit",
       "version": "0.1.0",
       "source": "./",
       "author": {

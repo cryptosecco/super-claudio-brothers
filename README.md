@@ -1,85 +1,42 @@
-```
-                      ___           ___           ___           ___
-                     /   \         /   \         /   \         /   \
-                    | o o |       | o o |       | o o |       | o o |
-                     \___/         \___/         \___/         \___/
-                     |   |         |   |         |   |         |   |
-                     |___|         |___|         |___|         |___|
-
-
-      ███████╗██╗   ██╗██████╗ ███████╗██████╗
-      ██╔════╝██║   ██║██╔══██╗██╔════╝██╔══██╗
-      ███████╗██║   ██║██████╔╝█████╗  ██████╔╝
-      ╚════██║██║   ██║██╔═══╝ ██╔══╝  ██╔══██╗
-      ███████║╚██████╔╝██║     ███████╗██║  ██║
-      ╚══════╝ ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═╝
-
-       ██████╗██╗      █████╗ ██╗   ██╗██████╗ ██╗ ██████╗
-      ██╔════╝██║     ██╔══██╗██║   ██║██╔══██╗██║██╔═══██╗
-      ██║     ██║     ███████║██║   ██║██║  ██║██║██║   ██║
-      ██║     ██║     ██╔══██║██║   ██║██║  ██║██║██║   ██║
-      ╚██████╗███████╗██║  ██║╚██████╔╝██████╔╝██║╚██████╔╝
-       ╚═════╝╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚═╝ ╚═════╝
-
-      ██████╗ ██████╗  ██████╗ ████████╗██╗  ██╗███████╗██████╗ ███████╗
-      ██╔══██╗██╔══██╗██╔═══██╗╚══██╔══╝██║  ██║██╔════╝██╔══██╗██╔════╝
-      ██████╔╝██████╔╝██║   ██║   ██║   ███████║█████╗  ██████╔╝███████╗
-      ██╔══██╗██╔══██╗██║   ██║   ██║   ██╔══██║██╔══╝  ██╔══██╗╚════██║
-      ██████╔╝██║  ██║╚██████╔╝   ██║   ██║  ██║███████╗██║  ██║███████║
-      ╚═════╝ ╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝
-
-
-                    Tu la lanci, e lei pensa al resto.
-```
+<p align="center">
+  <img src="banner.svg" alt="Super Claudio Brothers" width="640" />
+</p>
 
 # Super Claudio Brothers
 
-> **Tu la lanci, e lei pensa al resto.**
+> *Tu la lanci, e lei pensa al resto.*
 
-Super Claudio Brothers notices the workflows you repeat in Claude Code — and turns them into reusable skills before you have to ask.
-
-No configuration. No rituals. Installed once, invisible until the 4th time you do the same thing.
+A Claude Code plugin with two agents working in tandem. One watches. One proposes. You keep shipping.
 
 ---
 
-## What you stop doing
+## The two brothers
 
-- **Re-explaining the same investigation ritual** every time a new bug looks like the last one.
-- **Rebuilding the same setup sequence** for the 7th project this month.
-- **Typing the same 4 commands in the same order** you've already typed a hundred times.
+Every morning you open a new Claude Code session and re-explain the same workflow. Again. Super Claudio Brothers ends that loop with a pair of agents, each with exactly one job.
 
-## What happens instead
+### Brother #1 — The Watcher
 
-Super Claudio Brothers watches silently across sessions. The 4th time you repeat a multi-step workflow — regardless of project, language, or subsystem — it pauses at the end of the turn and shows:
+Runs silently across every session. Annotates recurring multi-step workflows into `~/.claude/patterns/`. Never speaks. Never interrupts. Just counts.
 
-```
-🍄 PATTERN DETECTED (4th occurrence)
+- 1st time you do something: ignored.
+- 2nd time: noted internally.
+- 3rd time: a quiet tracking file appears.
 
-Pattern: <what it noticed>
-Observed: <first date> → <last date>, 4 occurrences
+### Brother #2 — The Proposer
 
-Proposed skill:
-  • Name:        itsme-<slug>
-  • Description: "Use when <trigger>"
-  • Location:    ~/.claude/skills/itsme-<slug>/SKILL.md
+Wakes up on the 4th occurrence. At end of turn, presents a soft-blocking block with a complete skill proposal — name, description, steps, trigger, type. The mushroom 🍄 marks every proposal.
 
-Create now or decline?
-```
+- You approve → a new skill lands at `~/.claude/skills/itsme-<slug>/`.
+- You decline → the pattern is shelved forever. No re-prompting.
 
-You say yes, decline, or ignore. If yes, a new `itsme-<name>` skill appears in your toolbox. Next time, one command does what used to take four.
+---
 
-If you decline — the skill remembers forever. No re-prompting.
+## What changes for you
 
-## 30-second proof
-
-_Demo GIF coming in v0.1.1. Until then, see [`skills/super-claudio-brothers/SKILL.md`](skills/super-claudio-brothers/SKILL.md) for the full behavior spec._
-
-## Who this is for
-
-- You **work in Claude Code daily** and you've caught yourself repeating context.
-- You **don't want to stop and write automation** — you want automation to notice itself.
-- You **trust a tool that asks before acting** and respects "no" forever.
-- You're **tired of teaching every new session the same things**.
+- **You stop explaining yourself to a new session every morning.** The Watcher remembers so you don't have to.
+- **Every repetition compounds.** The 4th time you do something, it's already a skill you own.
+- **Two agents watch your workflow while you keep shipping.** No context-switching, no manual bookkeeping.
+- **Everything stays on your machine.** No telemetry. No cloud. No daemons.
 
 ---
 
@@ -90,68 +47,92 @@ _Demo GIF coming in v0.1.1. Until then, see [`skills/super-claudio-brothers/SKIL
 /plugin install super-claudio-brothers@super-claudio-brothers
 ```
 
-That's it. The skill and its `SessionStart` hook ship together — no manual `settings.json` edits.
+That's it. The enhanced hook ships with the plugin — no `settings.json` edit, no manual wiring.
 
-## What you get
-
-- A skill that observes every Claude Code session, matching on **shape** of workflow, not surface details.
-- A `SessionStart` hook that loads your tracked-patterns index into every new session so cross-session counts are always visible.
-- Zero background daemons. Zero telemetry. Everything runs inside your Claude Code session and writes to files under your home directory.
+---
 
 ## How it works
 
-| Occurrence | Action |
-|------------|--------|
-| 1st | Ignored — normal activity |
-| 2nd | Noted internally, nothing written |
-| 3rd | **Silent tracking** — creates `~/.claude/patterns/<slug>.md` |
-| 4th | **Soft-blocking proposal** at end of turn with full draft of the new skill |
+### The 4-hit threshold
 
-Patterns match on **shape**, not surface: a bug investigation across different subsystems still counts as the same pattern if the 4-step flow is identical. **Goal category** (`bug-fix`, `refactor-design`, `audit`, `migration`, `performance-triage`, `review`, `investigation`, `scaffold`) must match, or two similar workflows are split into separate patterns.
+| Occurrence | What the Watcher does                          | What you see         |
+|------------|------------------------------------------------|----------------------|
+| 1st        | Ignored                                        | Nothing              |
+| 2nd        | Noted internally                               | Nothing              |
+| 3rd        | Writes a silent tracking file                  | Nothing              |
+| 4th        | The Proposer speaks — soft-blocking 🍄 proposal | A skill, ready       |
 
-Full behavior spec, fuzzy-matching rules, drift handling, and taxonomy: [`skills/super-claudio-brothers/SKILL.md`](skills/super-claudio-brothers/SKILL.md).
+### Patterns match on shape, not surface
+
+The same abstract flow across different subsystems counts as the same pattern. "Reproduce the bug, isolate the failing module, write the fix, add a regression test" is one pattern whether the subsystem is auth or billing.
+
+### Goal categories
+
+Patterns are scoped by intent. If the goal differs, the pattern splits:
+
+`bug-fix` · `refactor-design` · `audit` · `migration` · `performance-triage` · `review` · `investigation` · `scaffold`
+
+Full behaviour spec, fuzzy-matching rules, drift handling, declined-permanence: [`skills/super-claudio-brothers/SKILL.md`](skills/super-claudio-brothers/SKILL.md).
+
+---
 
 ## File layout
 
-After first use, your home directory will contain:
+Everything lives under `~/.claude/`, owned by you:
 
-```
-~/.claude/
-├── patterns/
-│   ├── PATTERNS.md         # index of tracked patterns (one line each)
-│   ├── <pattern-slug>.md   # one file per pattern — count, status, observations
-│   ├── .onboarded          # flag: onboarding completed
-│   └── .disabled           # flag: skill silenced (create to disable)
-└── skills/
-    └── itsme-<slug>/       # skills crystallized from your patterns — user-owned
-        └── SKILL.md
-```
+- `~/.claude/patterns/PATTERNS.md` — the index
+- `~/.claude/patterns/<slug>.md` — one file per tracked pattern
+- `~/.claude/patterns/.onboarded` — first-run flag
+- `~/.claude/patterns/.disabled` — kill switch
+- `~/.claude/skills/itsme-<slug>/` — crystallized skills, yours to edit
 
-The `itsme-*` skills are yours — they live outside the plugin cache and survive uninstall.
+---
 
 ## Controls
 
-- **Disable:** `touch ~/.claude/patterns/.disabled`
-- **Re-enable:** `rm ~/.claude/patterns/.disabled`
-- **Force re-onboarding:** `rm ~/.claude/patterns/.onboarded`
+Silence the Watcher:
 
-Declining a specific pattern is permanent per-pattern — the skill writes `status: declined` in that pattern's file and never re-prompts. You can manually flip it back to `tracking` by editing the file if you change your mind.
+```bash
+touch ~/.claude/patterns/.disabled
+```
+
+Bring it back:
+
+```bash
+rm ~/.claude/patterns/.disabled
+```
+
+No daemon to stop. No process to kill. Just a flag file.
+
+---
 
 ## First run
 
-At first activation you'll see a 🍄 onboarding block that explains the system in plain language. Reply with:
+The first time the plugin loads, you get one onboarding message with three options:
 
-- `ok` → continue, skill becomes active
-- `disable` → kill switch on, skill stays silent until you re-enable
-- `install hook` → no-op, the hook already ships with the plugin
+- **`ok`** — enable both brothers, start watching.
+- **`disable`** — install but stay silent until you opt in.
+- **`install hook`** — confirm the hook is wired (already automatic in most setups).
+
+After that, the plugin is invisible until the 4th hit.
+
+---
 
 ## Troubleshooting
 
-**Skill doesn't fire when expected.** Open `/hooks` menu once to reload config, or restart Claude Code. The `SessionStart` hook needs a fresh session to activate.
+**The proposal never fired.**
+Open `/hooks` to confirm the hook is registered, or restart Claude Code. The hook ships with the plugin but some environments cache older settings.
 
-**`~/.claude/patterns/PATTERNS.md` is empty after several workflows.** Expected until the 3rd occurrence of the same pattern — tracking starts at 3, proposals fire at 4.
+**`~/.claude/patterns/` is empty.**
+Expected. Nothing is written until the 3rd occurrence of a pattern. Keep working — the Watcher is counting.
 
-**A pattern was declined but I changed my mind.** Open `~/.claude/patterns/<slug>.md` and change `status: declined` back to `status: tracking`. Next occurrence will resume counting.
+**I declined a pattern and regret it.**
+Open `~/.claude/patterns/<slug>.md` and flip `status: declined` back to `status: tracking`. The Proposer will reconsider on the next hit.
+
+**The skill fires at the wrong time.**
+It lives in `~/.claude/skills/itsme-<slug>/` — edit the trigger or description directly. It's yours now.
+
+---
 
 ## Uninstall
 
@@ -159,12 +140,18 @@ At first activation you'll see a 🍄 onboarding block that explains the system 
 /plugin uninstall super-claudio-brothers@super-claudio-brothers
 ```
 
-This removes the plugin and the `SessionStart` hook. Your `~/.claude/patterns/` files and any `itsme-*` skills you approved stay — they're yours.
+Your patterns and skills stay where they are. Delete them manually if you want a clean slate.
+
+---
 
 ## License
 
 MIT — see [LICENSE](LICENSE).
 
+---
+
 ## Credits
 
-Built by [Danilo Giudice](https://github.com/cryptosecco). Inspired by the feeling of doing the same thing for the 4th time and realizing you've already paid the cost of automation just by repeating yourself.
+Built by [Danilo Giudice](https://github.com/cryptosecco) for people who keep typing the same five steps every morning and wish someone were paying attention.
+
+The mushroom 🍄 is the mark. If you see it at the end of a turn, a brother has something for you.
