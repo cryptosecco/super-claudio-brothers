@@ -23,39 +23,43 @@
 
 # Super Claudio Brothers
 
-> *You launch it. It handles the rest.*
+> *🍄 it's me claudio*
 
-A Claude Code plugin that turns your repeated workflows into reusable skills — automatically. Two agents work in tandem behind the scenes: **Claudio** observes every multi-step pattern across your sessions and logs it silently; **Dario** wakes up at the 4th repetition and proposes a ready-to-install skill crystallized from what Claudio saw. You keep shipping — the skills library grows on its own.
+This plugin spawns **two agents** inside Claude Code — Claudio and Dario — that work in tandem to turn your repeated workflows into reusable skills. You keep shipping; they take care of the bookkeeping.
 
 ---
 
 ## The two brothers
 
-Every morning you open a new Claude Code session and re-explain the same workflow. Again. Super Claudio Brothers ends that loop with a pair of agents, each with exactly one job.
+### 🍄 Claudio — The Watcher
 
-### Claudio — The Watcher
-
-Runs silently across every session. Annotates recurring multi-step workflows into `~/.claude/patterns/`. Never speaks. Never interrupts. Just counts.
+**What he does.** Runs silently across every session. Annotates recurring multi-step workflows into `~/.claude/patterns/`. Never speaks. Never interrupts. Just counts.
 
 - 1st time you do something: ignored.
 - 2nd time: noted internally.
 - 3rd time: a quiet tracking file appears.
 
-### Dario — The Proposer
+**What he solves.** You stop re-explaining the same workflow to a new session every morning. The pattern memory lives outside the conversation, so context resets don't erase it.
 
-Wakes up on the 4th occurrence. At end of turn, presents a soft-blocking block with a complete skill proposal — name, description, steps, trigger, type. The mushroom 🍄 marks every proposal Dario makes.
+### 🍄 Dario — The Proposer
+
+**What he does.** Wakes up on the 4th occurrence. At end of turn, presents a soft-blocking block with a complete skill proposal — name, description, steps, trigger, type.
 
 - You approve → a new skill lands at `~/.claude/skills/itsme-<slug>/`.
 - You decline → the pattern is shelved forever. No re-prompting.
 
+**What he solves.** You never have to decide *if* a workflow is worth crystallizing or sit down to write a skill by hand. By the 4th repetition, Dario has already drafted it for you.
+
+### Naming convention
+
+Every skill the brothers crystallize is saved under `~/.claude/skills/itsme-<slug>/`. The `itsme-` prefix is the signature — one glance at your skills folder and you know which ones came from the brothers and which you wrote yourself.
+
 ---
 
-## What changes for you
+## Why it stays out of your way
 
-- **You stop explaining yourself to a new session every morning.** Claudio remembers so you don't have to.
 - **Every repetition compounds.** The 4th time you do something, it's already a skill you own.
-- **Two agents watch your workflow while you keep shipping.** No context-switching, no manual bookkeeping.
-- **Everything stays on your machine.** No telemetry. No cloud. No daemons.
+- **Everything stays on your machine.** No telemetry. No cloud. No daemons. Just two flag files and a folder under `~/.claude/`.
 
 ---
 
