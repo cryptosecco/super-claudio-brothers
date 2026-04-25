@@ -1,6 +1,6 @@
 ---
 name: super-claudio-brothers
-description: Use when noticing a recurring multi-step workflow repeated 3+ times within or across sessions that is not yet captured as a skill. Symptoms include executing a familiar sequence on autopilot, user saying "same drill" or "again" or "like last time", déjà vu on a multi-step ritual, a crystallizable pattern of 3+ distinct steps. Do NOT use for single-step commands (hooks or aliases) or style preferences (CLAUDE.md).
+description: Auto-detects multi-step workflows the user has repeated 3+ times within or across sessions and proposes them as reusable skills at the 4th occurrence — runs automatically, no manual invocation needed. Internal triggers to watch for: familiar sequences executed on autopilot, déjà vu on a multi-step ritual, user cues like "same drill" / "again" / "like last time". Not for single-step commands (hooks/aliases) or style preferences (CLAUDE.md).
 ---
 
 # Super Claudio Brothers

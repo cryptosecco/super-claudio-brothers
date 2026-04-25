@@ -25,6 +25,11 @@
 
 > *🍄 it's me claudio*
 
+[![Claude Code Plugin](https://img.shields.io/badge/Claude%20Code-Plugin-8B5CF6?logo=anthropic)](https://docs.claude.com/en/docs/claude-code/plugins)
+[![Version](https://img.shields.io/github/v/tag/cryptosecco/super-claudio-brothers?label=version&color=brightgreen)](https://github.com/cryptosecco/super-claudio-brothers/releases)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![GitHub Stars](https://img.shields.io/github/stars/cryptosecco/super-claudio-brothers?style=social)](https://github.com/cryptosecco/super-claudio-brothers/stargazers)
+
 This plugin spawns **two agents** inside Claude Code — Claudio and Dario — that work in tandem to turn your repeated workflows into reusable skills. You keep shipping; they take care of the bookkeeping.
 
 ---
@@ -33,11 +38,7 @@ This plugin spawns **two agents** inside Claude Code — Claudio and Dario — t
 
 ### 🍄 Claudio — The Watcher
 
-**What he does.** Runs silently across every session. Annotates recurring multi-step workflows into `~/.claude/patterns/`. Never speaks. Never interrupts. Just counts.
-
-- 1st time you do something: ignored.
-- 2nd time: noted internally.
-- 3rd time: a quiet tracking file appears.
+**What he does.** Runs silently across every session. Annotates recurring multi-step workflows into `~/.claude/patterns/`. Never speaks. Never interrupts. Just counts. (See [the 4-hit threshold](#the-4-hit-threshold) below for the exact rhythm.)
 
 **What he solves.** You stop re-explaining the same workflow to a new session every morning. The pattern memory lives outside the conversation, so context resets don't erase it.
 
@@ -60,6 +61,16 @@ Every skill the brothers crystallize is saved under `~/.claude/skills/itsme-<slu
 
 - **Every repetition compounds.** The 4th time you do something, it's already a skill you own.
 - **Everything stays on your machine.** No telemetry. No cloud. No daemons. Just two flag files and a folder under `~/.claude/`.
+
+---
+
+## Requirements
+
+- **[Claude Code](https://docs.claude.com/en/docs/claude-code)** with the `/plugin` subsystem (any version that supports plugin marketplaces)
+- **macOS, Linux, or Windows (WSL)** — anywhere Claude Code runs
+- **No additional dependencies** — pure Markdown skill + JSON hook config, zero runtime, zero daemons
+
+> New to Claude Code plugins? `/plugin` is a built-in slash command that installs marketplaces and skills directly from GitHub. Run `/plugin help` inside Claude Code if you want to see the full subsystem.
 
 ---
 
@@ -128,6 +139,37 @@ The hook is a single line in `settings.json` and ships pre-wired with the plugin
 
 ---
 
+## Quick start — what you'll actually see
+
+After install + onboarding, the brothers stay invisible while you work. The first time something interesting happens is at the **4th repetition** of a multi-step pattern. At end of turn, Dario appends a single block like this:
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🍄 PATTERN DETECTED (4th occurrence)
+
+Pattern: Reproduce bug → isolate failing module → write fix → add regression test
+Observed: 2026-04-12 → 2026-04-25, 4 occurrences
+
+Proposed skill:
+  • Name:        itsme-bug-fix-with-regression
+  • Description: "Use when fixing a confirmed bug, before writing code"
+  • Type:        discipline
+  • Location:    ~/.claude/skills/itsme-bug-fix-with-regression/SKILL.md
+
+Create now (invokes /superpowers:writing-skills) or decline?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+You reply `yes` → the skill is generated and saved under `~/.claude/skills/itsme-bug-fix-with-regression/`. Next time the same pattern starts, the skill auto-activates and runs the workflow for you.
+
+You reply `no` → the pattern is marked declined and Dario never re-proposes it.
+
+That's the whole user-facing surface of the plugin. Everything else is invisible.
+
+> *📸 Static screenshot and animated demo (asciinema) coming in v0.1.1 — see [Roadmap](#roadmap).*
+
+---
+
 ## How it works
 
 ### The 4-hit threshold
@@ -165,24 +207,6 @@ Everything lives under `~/.claude/`, owned by you:
 
 ---
 
-## Controls
-
-Silence Claudio:
-
-```bash
-touch ~/.claude/patterns/.disabled
-```
-
-Bring him back:
-
-```bash
-rm ~/.claude/patterns/.disabled
-```
-
-No daemon to stop. No process to kill. Just a flag file.
-
----
-
 ## Troubleshooting
 
 **The proposal never fired.**
@@ -206,6 +230,30 @@ It lives in `~/.claude/skills/itsme-<slug>/` — edit the trigger or description
 ```
 
 Your patterns and skills stay where they are. Delete them manually if you want a clean slate.
+
+---
+
+## Roadmap
+
+| Version | Status | What's in it |
+|---------|--------|--------------|
+| **0.1.0** | ✅ Released (2026-04-24) | Initial plugin — skill, hook, manifests, full README |
+| **0.1.1** | 🚧 In progress | Animated demo (asciinema + agg) and static screenshot of the 4th-hit proposal block, both in `assets/` and embedded in the README |
+| **0.2.0** | 🧠 Considering | Optional `--lang` flag for non-English onboarding; per-project pattern scoping |
+
+Have a request? Open an issue — see [Contributing](#contributing) below.
+
+---
+
+## Contributing
+
+Issues, ideas, and PRs are welcome. A few light guidelines:
+
+- **Bugs**: open an issue with a minimal reproduction (which Claude Code version, what pattern, what fired).
+- **Pattern detection improvements**: include a sample `~/.claude/patterns/<slug>.md` and a description of the false positive or false negative.
+- **PRs**: keep them focused (one concern per PR), update the [CHANGELOG](CHANGELOG.md), and bump the version in `.claude-plugin/plugin.json` if behavior changes.
+
+For larger design discussions, open an issue first so we don't both build the same thing in parallel.
 
 ---
 
