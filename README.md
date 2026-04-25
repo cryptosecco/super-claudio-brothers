@@ -23,7 +23,7 @@
 
 # Super Claudio Brothers
 
-> *🍄 it's me claudio*
+> *🍄 "it's me claudio*"
 
 [![Claude Code Plugin](https://img.shields.io/badge/Claude%20Code-Plugin-8B5CF6?logo=anthropic)](https://docs.claude.com/en/docs/claude-code/plugins)
 [![Version](https://img.shields.io/github/v/tag/cryptosecco/super-claudio-brothers?label=version&color=brightgreen)](https://github.com/cryptosecco/super-claudio-brothers/releases)
