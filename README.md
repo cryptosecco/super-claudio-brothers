@@ -1,10 +1,10 @@
 ```
-   ╔══════╗     ███████╗██╗   ██╗██████╗ ███████╗██████╗
-  ╔╝██████╚╗    ██╔════╝██║   ██║██╔══██╗██╔════╝██╔══██╗
-  ║██░██░██║    ███████╗██║   ██║██████╔╝█████╗  ██████╔╝
-  ╚═══╗╔═══╝    ╚════██║██║   ██║██╔═══╝ ██╔══╝  ██╔══██╗
-      ║║        ███████║╚██████╔╝██║     ███████╗██║  ██║
-      ╚╝        ╚══════╝ ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═╝
+   ▄████████▄    ███████╗██╗   ██╗██████╗ ███████╗██████╗
+  ████░██░███    ██╔════╝██║   ██║██╔══██╗██╔════╝██╔══██╗
+ █████████████   ███████╗██║   ██║██████╔╝█████╗  ██████╔╝
+ ████░████░██    ╚════██║██║   ██║██╔═══╝ ██╔══╝  ██╔══██╗
+  ▀█████████▀    ███████║╚██████╔╝██║     ███████╗██║  ██║
+      ▐██▌       ╚══════╝ ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═╝
 
                 ██████╗██╗      █████╗ ██╗   ██╗██████╗ ██╗ ██████╗
                ██╔════╝██║     ██╔══██╗██║   ██║██╔══██╗██║██╔═══██╗
@@ -74,6 +74,60 @@ That's it. The enhanced hook ships with the plugin — no `settings.json` edit, 
 
 ---
 
+## First run — choose how the brothers operate
+
+The first time the skill activates after install, Claudio runs two pre-flight checks before doing anything else:
+
+1. Does `~/.claude/patterns/.disabled` exist? → if yes, the brothers stay silent.
+2. Does `~/.claude/patterns/.onboarded` exist? → if no, present onboarding (this happens **once**, ever).
+
+The onboarding message looks like this:
+
+```
+🍄 Super Claudio Brothers — first run
+
+Two brothers will now watch your workflow:
+  • Claudio — the Watcher. Observes patterns silently, writes to ~/.claude/patterns/
+  • Dario   — the Proposer. At the 4th repetition, offers a ready-made skill
+
+How it works:
+  • 1st–2nd time you do something: I stay silent.
+  • 3rd time:  I silently start tracking in ~/.claude/patterns/.
+  • 4th time:  after finishing the task, I propose a new skill
+               named itsme-<slug> that you can approve or decline.
+
+Reply "ok" to proceed, "disable" to turn me off, or "install hook"
+for the upgrade.
+```
+
+You pick one of three replies. Each writes flag files under `~/.claude/patterns/` and never prompts you again.
+
+| Reply | What happens | When to choose it |
+|-------|--------------|-------------------|
+| **`ok`** | Writes `.onboarded`. Brothers go live in within-session mode. | Default — try it for a few days, then upgrade if you want cross-session memory. |
+| **`disable`** | Writes both `.onboarded` and `.disabled`. Brothers stay silent until you `rm ~/.claude/patterns/.disabled`. | You want the plugin installed but inactive for now. |
+| **`install hook`** | Invokes `/update-config` to wire a `SessionStart` hook into `settings.json`, then writes `.onboarded`. | You want full cross-session coverage from day one. |
+
+### Coverage modes
+
+| Mode | What it does | Coverage |
+|------|--------------|----------|
+| **Default** (just `ok`) | At session start, Claudio reads `~/.claude/patterns/PATTERNS.md` from inside the skill. | ~80% — works reliably within a session; cross-session counts can occasionally be missed if the skill doesn't auto-activate on the first turn. |
+| **With hook** (`install hook` or pre-wired) | A `SessionStart` hook in `settings.json` runs `cat ~/.claude/patterns/PATTERNS.md` automatically before any conversation begins, so tracked patterns are always in context. | 100% — every session starts with full pattern memory loaded. |
+
+The hook is a single line in `settings.json` and ships pre-wired with the plugin — most installs already have it. If you skipped it during onboarding and change your mind later, just say *"install the super-claudio-brothers hook"* in any session.
+
+### Changing your mind later
+
+| Want to… | Do this |
+|----------|---------|
+| Pause the brothers | `touch ~/.claude/patterns/.disabled` |
+| Resume them | `rm ~/.claude/patterns/.disabled` |
+| Upgrade to hook coverage | Ask Claude to *"install the super-claudio-brothers hook"* |
+| Re-do onboarding | `rm ~/.claude/patterns/.onboarded` then start a new session |
+
+---
+
 ## How it works
 
 ### The 4-hit threshold
@@ -126,18 +180,6 @@ rm ~/.claude/patterns/.disabled
 ```
 
 No daemon to stop. No process to kill. Just a flag file.
-
----
-
-## First run
-
-The first time the plugin loads, you get one onboarding message with three options:
-
-- **`ok`** — enable both brothers, start watching.
-- **`disable`** — install but stay silent until you opt in.
-- **`install hook`** — confirm the hook is wired (already automatic in most setups).
-
-After that, the plugin is invisible until the 4th hit.
 
 ---
 
